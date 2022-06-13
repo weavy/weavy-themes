@@ -1,0 +1,43 @@
+@use "../namespace";
+@use "../variables";
+@use "../colors";
+@use "../bootstrap/ports/dropdown";
+@use "../bootstrap/ports/tables";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-reaction-count {
+  margin: 0 .25rem;
+  line-height: 1;
+  color: variables.$text-muted;
+  font-size: variables.$font-size-sm;
+}
+
+.#{$wy}-reaction-menu {
+  padding: .5rem;
+  font-size: 1.25rem;
+  border-radius: 2.5rem;
+}
+
+.#{$wy}-reaction-picker {
+  display: flex;
+
+  .#{$wy}-reaction-button {
+    color: unset;
+  }
+}
+
+.#{$wy}-reactions {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .125rem;
+
+  // hidden when empty
+  &:empty {
+    display: none;
+  }
+}
+
+.#{$wy}-table-reactions {
+  @extend %table, %table-icons;
+}

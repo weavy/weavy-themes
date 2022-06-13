@@ -1,0 +1,96 @@
+@use "../namespace";
+@use "../variables";
+@use "../bootstrap/ports/list-group";
+@use "../bootstrap/mixins" as bs;
+
+@use "./avatar";
+@use "./search";
+@use "./typing";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-conversation {
+  display: flex;
+  position: relative;
+}
+
+.#{$wy}-conversation-link {
+  @extend 
+    %list-group-item, 
+    %list-group-item-action;
+  display: flex;
+  padding: .5rem;
+  border: none;
+  z-index: unset !important;
+
+  
+  &.#{$wy}-active {
+    background-color: variables.$list-group-hover-bg;
+  }
+}
+
+.#{$wy}-conversation-body {
+  flex-grow: 1;
+  min-width: 0;
+  margin-left: 1rem;
+}
+
+.#{$wy}-conversation-header {
+  display: flex;
+  align-items: center;
+}
+
+.#{$wy}-conversation-title {
+  @include bs.text-truncate();
+  margin-right: auto;
+
+  .#{$wy}-conversation.#{$wy}-unread & {
+    font-weight: variables.$font-weight-bold;
+  }
+}
+
+.#{$wy}-conversation-time {
+  color: variables.$text-muted;
+  font-size: variables.$font-size-xs;
+  margin-left: .5rem;
+  margin-right: .25rem;
+  flex-shrink: 0;
+}
+
+.#{$wy}-conversation-summary {
+  @include bs.text-truncate();
+
+  color: variables.$text-muted;
+  font-size: variables.$font-size-sm;
+  margin-right: 4rem; // room for icons
+
+  // vertically align text and icons
+  height: 1.5rem;
+  line-height: 1.5rem;
+
+  .#{$wy}-emoji {
+    vertical-align: -.3125rem;
+  }
+
+  .#{$wy}-icon {
+    vertical-align: -.4375rem;
+  }
+
+  .#{$wy}-conversation.#{$wy}-unread & {
+    font-weight: variables.$font-weight-medium;
+    color: variables.$body-color;
+  }
+
+  .#{$wy}-typing-show {
+    @include bs.text-truncate();
+    font-weight: variables.$font-weight-normal;
+  }
+}
+
+.#{$wy}-conversation-actions {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: .5rem;
+  bottom: .25rem;
+}

@@ -1,0 +1,17 @@
+@use "../variables";
+@use "../colors";
+
+$font-family-monospace: variables.$font-family-monospace !default;
+$line-height-sm: variables.$line-height-sm !default;
+$border-width: variables.$border-width !default;
+$border-color: variables.$border-color !default;
+$border-radius: variables.$border-color !default;
+
+pre.code-block {
+  font-family: $font-family-monospace;
+  line-height: $line-height-sm;
+  background-color: colors.$light;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  padding: .75rem;
+}

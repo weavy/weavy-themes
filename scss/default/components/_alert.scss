@@ -1,0 +1,81 @@
+@use "../namespace";
+@use "../variables";
+@use "../colors";
+
+$wy: namespace.$prefix;
+
+$client-alert-background: variables.$client-alert-background !default;
+$client-panel-width: variables.$client-panel-width !default;
+$client-alert-color: variables.$client-alert-color !default;
+
+// Global alerts
+
+.#{$wy}-alert-message {
+    padding: .25rem .5rem;
+    background-color: $client-alert-background;
+    text-align: center;
+    width: $client-panel-width;
+    color: $client-alert-color;
+    border-radius: .1875rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    font-family: variables.$font-family-base;
+    position: relative;
+    z-index: 10;
+    box-shadow: variables.$md-shadow-8dp;
+    max-width: calc(100% - 3rem);
+    pointer-events: none;
+    user-select: none;
+
+    a {
+        color: darken($client-alert-color, 10%);
+        text-decoration: variables.$link-decoration;
+        font-weight: variables.$alert-link-font-weight;
+        pointer-events: auto;
+    }
+
+    &.#{$wy}-fade {
+        transition: all variables.$md-animation-duration variables.$md-animation-curve-default;
+        opacity: 0;
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+
+        &.#{$wy}-in {
+            transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default;
+            opacity: 1;
+            height: auto;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            margin-top: 1rem;
+        }
+    }
+
+    .#{$wy}-button {
+        cursor: pointer;
+        display: inline-flex;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        > * {
+            display: inline-flex;
+        }
+
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .3125rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .1875rem;
+        color: colors.$white;
+        background-color: colors.$primary;
+        border-color: colors.$primary;
+        box-shadow: variables.$btn-box-shadow;
+        margin-top: .5rem;
+    }
+}

@@ -1,0 +1,25 @@
+// Port from bootstrap to only generate content on demand
+// - Update with content from bootstrap/scss/_badge.scss
+// - Replace .selector with %selector
+// - @extend %selector in your code
+
+@use "../../bootstrap" as *;
+
+%badge {
+    display: inline-block;
+    padding: $badge-padding-y $badge-padding-x;
+    @include font-size($badge-font-size);
+    font-weight: $badge-font-weight;
+    line-height: 1;
+    color: $badge-color;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    @include border-radius($badge-border-radius);
+    @include gradient-bg();
+  
+    // Empty badges collapse automatically
+    &:empty {
+      display: none;
+    }
+  }

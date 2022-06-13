@@ -1,0 +1,104 @@
+@use "../namespace";
+@use "../variables";
+@use "../bootstrap/mixins" as bs;
+@use "../colors";
+
+@use "../bootstrap/ports/buttons";
+
+$wy: namespace.$prefix;
+
+@mixin button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none !important;
+  display: inline-flex;
+  line-height: 1;
+  padding: .25rem;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+
+  min-width: 2rem;
+  min-height: 2rem;
+
+  &:hover,
+  &:focus {
+    color: variables.$icon-hover-color;
+  }
+
+  &.#{$wy}-active {
+    background-color: variables.$icon-focus-bg;
+  }
+  
+  span:not(.#{$wy}-icon) {
+    margin-left: .25rem;
+  }
+
+  // spinner, e.g. for attachments upload etc.
+  .#{$wy}-spinner:not(.#{$wy}-spin) {
+    display: none;
+  }
+ }
+
+@mixin button-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    color: variables.$icon-color;
+    
+    &:hover {
+      color: variables.$icon-hover-color;
+      background-color: variables.$icon-hover-bg;
+    }
+
+    &:focus {
+      background-color: variables.$icon-focus-bg;
+    }
+
+    &.#{$wy}-active {
+      background-color: variables.$icon-focus-bg;
+      &:hover {
+        background-color: variables.$icon-focus-bg;
+      }
+
+    }
+
+ }
+
+.#{$wy}-button {
+  @include button;
+}
+
+.#{$wy}-button-icon {
+  @include button-icon;
+}
+
+.#{$wy}-button-primary {
+  &.#{$wy}-button-icon {
+    color: variables.$icon-color-primary;
+    
+    &:hover {
+        color: variables.$icon-hover-color-primary;
+    }
+  }
+  &:not(.#{$wy}-button-icon) {
+    @extend 
+      %btn, 
+      %btn-primary;
+  }
+}
+
+.#{$wy}-button-secondary {
+  @extend 
+    %btn, 
+    %btn-secondary;
+}
+
+.#{$wy}-buttons {
+  display:flex;
+  align-items: center;
+
+  >:not(:last-child) {
+    margin: 0 .5rem 0 0;
+  }
+}

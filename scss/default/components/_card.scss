@@ -1,0 +1,11 @@
+@use "../namespace";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-card-header {
+  border-bottom: none;
+}
+
+.#{$wy}-card-footer {
+  border-top: none;
+}

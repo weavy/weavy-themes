@@ -1,0 +1,20 @@
+@use "../namespace";
+@use "../variables";
+
+$wy: namespace.$prefix;
+
+// user content
+.#{$wy}-content {
+
+  .#{$wy}-tag {
+    color: variables.$text-muted;
+  }
+
+  .#{$wy}-mention {
+    font-weight: 500;
+  }
+
+  p:last-child {
+      margin-bottom:0;
+  }
+}

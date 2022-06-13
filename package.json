@@ -1,0 +1,24 @@
+{
+  "name": "@weavy/themes",
+  "version": "11.0.0",
+  "author": "Weavy",
+  "description": "Theme library for Weavy",
+  "homepage": "https://github.com/weavy/weavy-themes",
+  "license": "MIT",
+  "main": "dist/weavy-default.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass scss:dist --load-path=node_modules --no-source-map",
+    "watch": "sass scss:dist --load-path=node_modules --watch"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "sass": "^1.51.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "highlight.js": "^11.5.1"
+  }
+}

@@ -1,0 +1,22 @@
+@use "../utils/scroll";
+@use "../namespace";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-scroll-y {
+  @include scroll.scroll-y;
+
+  &:not(.#{$wy}-scroll-x) {
+    overflow-x: hidden;
+    touch-action: pan-y;
+  }
+}
+
+.#{$wy}-scroll-x {
+  @include scroll.scroll-x;
+
+  &:not(.#{$wy}-scroll-y) {
+    overflow-y: hidden;
+    touch-action: pan-x;
+  }
+}

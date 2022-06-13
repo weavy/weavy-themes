@@ -1,0 +1,72 @@
+@use "../namespace";
+@use "../variables";
+@use "../bootstrap/ports/list-group";
+@use "../bootstrap/mixins" as bs;
+
+$wy: namespace.$prefix;
+
+.#{$wy}-attachments,
+.#{$wy}-meetings {
+  border: none;
+  border-radius: variables.$border-radius-sm;
+  flex: 1 1 100%;
+  min-width: 0;
+
+  .#{$wy}-attachment,
+  .#{$wy}-meeting {
+    border-left: none;
+    border-right: none;
+  }
+
+  > * {
+    padding: .25rem .5rem;
+  }
+
+  > :first-child {
+    border-top: none;
+  }
+
+  > :last-child {
+    //border-top: variables.$border-width solid variables.$border-color;
+    border-bottom: none;
+  }
+}
+
+.#{$wy}-attachment,
+.#{$wy}-meeting {
+  @extend 
+  %list-group-item, 
+  %list-group-item-action;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.#{$wy}-attachment-icon {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.#{$wy}-attachment-content {
+  flex: 1 1 100%;
+  min-width: 0;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.#{$wy}-attachment-title {
+  font-family: variables.$headings-font-family;
+  font-style: variables.$headings-font-style;
+  font-weight: variables.$headings-font-weight;
+  color: variables.$headings-color;
+  @include bs.text-truncate();
+  @include bs.font-size(variables.$h6-font-size);
+  margin: 0;
+}
+
+.#{$wy}-attachment-meta {
+  @include bs.text-truncate();
+  @include bs.font-size(variables.$small-font-size);
+  color: variables.$text-muted;
+}

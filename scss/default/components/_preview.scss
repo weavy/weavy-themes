@@ -1,0 +1,23 @@
+@use "../namespace";
+@use "../variables";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.#{$wy}-nav-prev {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+}
+
+.#{$wy}-nav-next {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+}

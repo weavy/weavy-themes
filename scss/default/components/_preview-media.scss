@@ -1,0 +1,32 @@
+@use "../namespace";
+
+$wy: namespace.$prefix;
+
+// Video and audio
+.#{$wy}-content-video {
+  &:not(.#{$wy}-error) {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+  }
+}
+
+.#{$wy}-content-video, .#{$wy}-content-audio {
+  margin: auto;
+
+  &.#{$wy}-loading, &[data-controller~="media"] {
+    &:not(.#{$wy}-loaded) {
+      visibility: hidden;
+    }
+
+    &.#{$wy}-loaded {
+      ~ .#{$wy}-spinner {
+        display: none;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

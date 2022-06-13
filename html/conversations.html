@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversation</title>
+  <link href="../dist/weavy-test-reboot.css" rel="stylesheet">
+  <link href="../dist/weavy-test-components.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="appbar">
+    <a href="index.html"><img src="assets/favicon.svg" width="24" height="24" /></a>
+    <div class="appbar-text">Conversations</div>
+  </nav>
+
+  <main>
+    <div class="conversations">
+
+      <div class="conversation unread">
+        <a class="conversation-link" href="#">
+          <img alt="" class="avatar" height="48" src="assets/avatar-group-96.png" width="48">
+          <div class="conversation-body">
+            <div class="conversation-header">
+              <div class="conversation-title">Kool and the gang</div>
+              <time class="conversation-time" datetime="2022-02-15T23:10:23Z"
+                title="2/16/2022 12:10 AM">2/16/2022</time>
+            </div>
+            <div class="conversation-summary">
+              <span class="typing-hide">You:
+                sdfadafadfadfkhkjsdfhjkhsfdksfhkhakfhaldhklahsdkfhaksdjhfkalsfkhakshdf</span>
+              <span class="typing-show"></span>
+
+            </div>
+          </div>
+        </a>
+
+        <div class="conversation-actions">
+
+          <svg height="24" viewBox="0 0 24 24" width="24" class="i i-star text-warning">
+            <path d="m12 17.27 6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62-2.81-6.62-2.81 6.62-7.19.62 5.45 4.73-1.63 7.03z">
+            </path>
+          </svg>
+
+          <svg height="24" viewBox="0 0 24 24" width="24" class="i i-dots-vertical">
+            <path
+              d="m12 16c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z">
+            </path>
+          </svg>
+        </div>
+      </div>
+
+
+
+      <div class="conversation">
+        <a class="conversation-link" href="#">
+          <div style="position: relative;"><img alt="" class="avatar" height="48" src="assets/avatar-96.svg" width="48">
+            <div class="presence"></div>
+          </div>
+          <div class="conversation-body">
+            <div class="conversation-header">
+              <div class="conversation-title">Project Manager</div>
+              <time class="conversation-time" datetime="2022-02-10T14:33:35Z" title="2/10/2022 3:33 PM">2/10/2022</time>
+            </div>
+            <div class="conversation-summary">
+              <span class="typing-hide">
+                You: fkjkdshf
+                fdsdjlkjfdlks </span>
+              <span class="typing-show"></span>
+
+            </div>
+          </div>
+        </a>
+
+        <div class="conversation-actions">
+          <svg height="24" viewBox="0 0 24 24" width="24" class="i i-dots-vertical">
+            <path
+              d="m12 16c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z">
+            </path>
+          </svg>
+
+        </div>
+      </div>
+
+      <a class="pager"><svg class="spinner spin" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle fill="none" cx="12" cy="12" r="11" stroke-linecap="butt" stroke-width="2"></circle></svg></a>
+    </div>
+  </main>
+</body>
+
+</html>

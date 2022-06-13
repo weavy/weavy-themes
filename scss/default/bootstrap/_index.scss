@@ -1,0 +1,17 @@
+// Module wrapper for bootstrap core
+
+// include functions first (so we can manipulate colors, SVGs, calc, etc)
+@import "../options";
+@import "bootstrap/scss/functions";
+
+// weavy color system
+@import "../utils/palette";
+@import "../colors";
+
+// customize variables, see https://getbootstrap.com/docs/5.0/customize/sass/
+@import "../custom-variables";
+@import "bootstrap/scss/variables";
+
+// include required Bootstrap stylesheets
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";

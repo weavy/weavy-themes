@@ -1,0 +1,55 @@
+@use "../namespace";
+@use "../variables";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-nav-tabs {
+  border-bottom: none;
+  padding: 0 .5rem;
+
+  .#{$wy}-nav-link {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: .125rem solid transparent;
+    text-transform: uppercase;
+    font-size: variables.$font-size-xs;
+    font-weight: variables.$font-weight-bold;
+    letter-spacing: .05em;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
+
+    &.#{$wy}-disabled {
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &.#{$wy}-active {
+      color: variables.$link-color;
+      background-color: transparent;
+      border-color: variables.$link-color;
+    }
+  }
+}
+
+.#{$wy}-nav-dark {
+  .#{$wy}-nav-link, .#{$wy}-button-link {
+    color: variables.$navbar-dark-color;
+
+    &.#{$wy}-active {
+      color: variables.$navbar-dark-active-color;
+      border-color: variables.$navbar-dark-active-color;
+    }
+
+    &:hover,
+    &:focus {
+      color: variables.$navbar-dark-hover-color;
+    }
+
+    &.#{$wy}-disabled {
+      color: variables.$navbar-dark-disabled-color;
+    }
+  }
+}

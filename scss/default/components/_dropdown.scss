@@ -1,0 +1,78 @@
+@use "../namespace";
+@use "../variables";
+@use "../bootstrap/mixins" as bs;
+@use "../colors";
+
+@use "../bootstrap/ports/dropdown";
+
+$wy: namespace.$prefix;
+
+.#{$wy}-dropdown,
+.#{$wy}-dropup {
+  position: relative
+}
+
+.#{$wy}-dropup {
+  .#{$wy}-dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: variables.$dropdown-spacer;
+  }
+}
+
+
+.#{$wy}-dropdown-toggle {
+  white-space: nowrap;
+}
+
+.#{$wy}-dropdown-menu {
+  @extend %dropdown-menu;
+
+  display: block;
+
+  .#{$wy}-dropup & {
+      top: auto;
+      bottom: 100%;
+      margin-top: 0;
+      margin-bottom: variables.$dropdown-spacer;
+  }
+
+  // Bootstrap compatibility
+  [data-bs-toggle="dropdown"] ~ & {
+    &:not(.show) {
+      display: none;
+    }
+
+    &[hidden].show {
+        display: block !important;
+    }
+  }
+}
+
+.#{wy}-dropdown-menu-end {
+  right: 0;
+}
+
+.#{wy}-dropdown-item {
+  @extend %dropdown-item;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  > img, .#{wy}-icon {
+    margin-right: .5rem;
+    color: variables.$icon-color;
+  }
+
+  &:active {
+    > .#{wy}-icon {
+      $c: color-contrast(variables.$component-active-bg);
+      color: if($c == variables.$color-contrast-light, variables.$icon-light-color!important, variables.$icon-color);
+    }
+  }
+}
+
+.#{wy}-dropdown-divider {
+  @extend %dropdown-divider;
+}

@@ -1,0 +1,6 @@
+// Module wrapper for reboot
+
+@use "../../variables" as *;
+@use "../mixins" as *;
+
+@import "bootstrap/scss/reboot";

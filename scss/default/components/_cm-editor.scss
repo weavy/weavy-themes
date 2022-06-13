@@ -1,0 +1,47 @@
+@use "../variables";
+@use "../colors";
+@use "../utils/scroll";
+
+@use "./message-editor";
+
+$input-height-inner: variables.$input-height-inner !default;
+$input-height-inner-quarter: variables.$input-height-inner-quarter !default;
+$input-height-inner-half: variables.$input-height-inner-half !default;
+
+$form-feedback-icon-invalid: variables.$form-feedback-icon-invalid !default;
+$form-feedback-invalid-color: variables.$form-feedback-invalid-color !default;
+
+.ͼ1 .cm-scroller {
+    font-family: unset;
+    line-height: 1.25;
+}
+
+.cm-editor {
+  @extend %message-editor-textfield;
+
+  &.cm-focused {
+    /* default theme in codemirror seems difficult to override */
+    outline: colors.$light solid 1px !important;
+  }
+
+  .cm-content {
+    @extend %message-editor-textcontent;
+  }
+
+  .cm-scroller {
+    overflow: auto;
+
+    html.scrollbars & {
+      @include scroll.custom-scrollbar;
+    }
+  }
+}
+
+textarea.is-invalid + [data-editor-target] .cm-editor {
+  padding-right: $input-height-inner;
+  background-image: escape-svg($form-feedback-icon-invalid);
+  background-repeat: no-repeat;
+  background-position: right $input-height-inner-quarter top $input-height-inner-quarter;
+  background-size: $input-height-inner-half $input-height-inner-half;
+  outline-color: $form-feedback-invalid-color !important;
+}
