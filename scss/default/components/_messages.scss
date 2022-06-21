@@ -81,7 +81,7 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   flex-direction: row;
   flex-wrap: wrap;
   padding: .75rem;
-  max-width: min(32rem, calc(100% - 4rem));
+  max-width: min(32rem, calc(100% - 2rem));
   min-width: 10rem;
 
   > div {

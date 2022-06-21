@@ -54,6 +54,6 @@ $wy: namespace.$prefix;
   border-radius: 50%;
   outline: .125rem solid colors.$white;
   position: absolute;
-  top: 0;
-  left: .125rem;
+  bottom: 0;
+  right: -5%;
 }

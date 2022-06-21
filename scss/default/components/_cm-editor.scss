@@ -16,6 +16,10 @@ $form-feedback-invalid-color: variables.$form-feedback-invalid-color !default;
     line-height: 1.25;
 }
 
+.ͼ1 .cm-widgetBuffer {
+  vertical-align: unset;
+}
+
 .cm-editor {
   @extend %message-editor-textfield;
 

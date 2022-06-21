@@ -11,23 +11,20 @@ $wy: namespace.$prefix;
 
 .#{$wy}-messenger-provider {
   display: flex;
-  height: 100%;
-
+  min-height: 0;
+  flex: 1 1 0;
 
   .#{$wy}-messenger-sidebar {
     width: 300px;
-    height: 100vh;
-    max-height: 100vh;
     overflow-y: scroll;
     border-right: 1px solid #ccc;
   }
 
   .#{$wy}-messenger-conversation{
+    overflow-anchor: none;
     display: flex;
     flex-direction: column;                    
-    flex: 1;
-    height: 100vh;
-    max-height: 100vh;
+    flex: 1 1 0;
     overflow-y: scroll;
   }
 }

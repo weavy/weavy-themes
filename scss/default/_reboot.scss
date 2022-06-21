@@ -1,0 +1,53 @@
+@use "sass:selector";
+@use "./variables";
+@use "./namespace";
+
+$wy: namespace.$prefix;
+
+// General style reboot selector for all classes starting with wy-
+[class^="#{$wy}-"],
+[class*=" #{$wy}-"] {
+
+  // Cherry-picked and ported from bootstrap/scss/reboot
+  &,
+  & * {
+
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+
+    &[hidden] {
+      display: none !important;
+    }
+
+    &[role="button"] {
+      cursor: pointer;
+    }
+  }
+
+  #{selector.append("a", &)},
+  & a {
+    text-decoration: variables.$link-decoration;
+
+    &:hover {
+      text-decoration: variables.$link-hover-decoration;
+    }
+
+    &:not([href]):not([class]) {
+
+      &,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  #{selector.append("p", &)},
+  & p {
+    margin-top: 0;
+    margin-bottom: variables.$paragraph-margin-bottom;
+  }
+
+}

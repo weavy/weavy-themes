@@ -55,7 +55,8 @@ $wy: namespace.$prefix;
     .#{$wy}-button {
       &:not(.#{$wy}-button-icon) {
         color: variables.$navbar-light-color;
-  
+        display: inline;
+
         &.#{$wy}-active {
           color: variables.$navbar-light-active-color;
         }
@@ -81,7 +82,8 @@ $wy: namespace.$prefix;
     .#{$wy}-button {
       &:not(.#{$wy}-button-icon) {
         color: variables.$navbar-dark-color;
-  
+        display: inline;
+        
         &.#{$wy}-active {
           color: variables.$navbar-dark-active-color;
         }

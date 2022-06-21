@@ -6,6 +6,7 @@
 
 @use "./icons";
 @use "./spinner";
+@use "../bootstrap/mixins" as bs;
 
 $wy: namespace.$prefix;
 
@@ -56,6 +57,10 @@ input[type="search"]::-webkit-search-cancel-button {
 .#{$wy}-search-result-table {
   @extend %table,
   %table-icons;
+
+  td:nth-child(2) {
+    @include bs.text-truncate();
+  }
 }
 
 .#{$wy}-search-no-result {
