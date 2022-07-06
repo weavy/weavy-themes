@@ -1,6 +1,9 @@
+@use "../namespace";
 @use "../variables";
 @use "../utils/backdrop";
-@use "../utils/scroll";
+@use "../utils/scrollbar";
+
+$wy: namespace.$prefix;
 
 $navbar-height: variables.$navbar-height !default;
 $zindex-fixed: variables.$zindex-fixed !default;
@@ -119,12 +122,11 @@ $opacity-backdrop: variables.$opacity-backdrop !default;
     bottom: 0;
     //overflow: auto;
 
-    @include scroll.scroll-y;
-    @include scroll.scroll-x;
+    @include scrollbar.scroll-y;
+    @include scrollbar.scroll-x;
 
-    html.scrollbars & {
-      @include scroll.custom-scrollbar;
-      @include scroll.scrollbar-top-padding($navbar-height);
+    .#{$wy}-scrollbars & {
+      @include scrollbar.custom-scrollbar;
 
       @supports (overflow-y: overlay) {
         overflow-y: overlay;

@@ -12,20 +12,19 @@ $wy: namespace.$prefix;
 .#{$wy}-messenger-provider {
   display: flex;
   min-height: 0;
+  min-width: 0;
   flex: 1 1 0;
+}
 
-  .#{$wy}-messenger-sidebar {
-    width: 300px;
-    overflow-y: scroll;
-    border-right: 1px solid #ccc;
-  }
+.#{$wy}-messenger-sidebar {
+  width: 300px;
+  border-right: 1px solid #ccc;
+}
 
-  .#{$wy}-messenger-conversation{
-    overflow-anchor: none;
-    display: flex;
-    flex-direction: column;                    
-    flex: 1 1 0;
-    overflow-y: scroll;
-  }
+.#{$wy}-messenger-conversation{
+  overflow-anchor: none;
+  display: flex;
+  flex-direction: column;                    
+  flex: 1 1 0;
 }
 

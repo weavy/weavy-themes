@@ -1,8 +1,11 @@
+@use "../namespace";
 @use "../variables";
 @use "../colors";
-@use "../utils/scroll";
+@use "../utils/scrollbar";
 
 @use "./message-editor";
+
+$wy: namespace.$prefix;
 
 $input-height-inner: variables.$input-height-inner !default;
 $input-height-inner-quarter: variables.$input-height-inner-quarter !default;
@@ -35,8 +38,8 @@ $form-feedback-invalid-color: variables.$form-feedback-invalid-color !default;
   .cm-scroller {
     overflow: auto;
 
-    html.scrollbars & {
-      @include scroll.custom-scrollbar;
+    .#{$wy}-scrollbars & {
+      @include scrollbar.custom-scrollbar;
     }
   }
 }

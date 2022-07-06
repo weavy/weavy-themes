@@ -5,8 +5,10 @@
   touch-action: pan-y, pan-x;
 
   // to enable HW acceleration and not cause repaint on scroll
-  will-change: scroll-position;
+  // opacity needed for custom scrollbar to paint
+  will-change: scroll-position, opacity;
   backface-visibility: hidden;
+
   // ios momentum scrolling on iOS <= 12, cannot be used on the <body> element!
   &:not(body) {
     -webkit-overflow-scrolling: touch;
@@ -20,7 +22,7 @@
   touch-action: pan-y, pan-x;
 
   // to enable HW acceleration and not cause repaint on scroll
-  will-change: scroll-position;
+  will-change: scroll-position, opacity;
   backface-visibility: hidden;
   max-width: 100%;
 }
@@ -55,6 +57,7 @@
       background-color: rgba(colors.$gray-500, 0.5);
     }
   }
+
   // custom scrollbar for firefox
   scrollbar-width: thin;
   scrollbar-color: rgba(colors.$gray-500, 0.75) transparent;
@@ -88,6 +91,7 @@
       background-color: rgba(colors.$gray-500, 0.5);
     }
   }
+  
   // custom scrollbar for firefox
   scrollbar-width: thin;
   scrollbar-color: rgba(colors.$gray-700, 0.75) transparent;
