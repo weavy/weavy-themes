@@ -1,8 +1,5 @@
-@use "../namespace";
-@use "../variables";
 @use "../colors";
-
-$wy: namespace.$prefix;
+@use "../variables";
 
 $client-alert-background: variables.$client-alert-background !default;
 $client-panel-width: variables.$client-panel-width !default;
@@ -10,7 +7,7 @@ $client-alert-color: variables.$client-alert-color !default;
 
 // Global alerts
 
-.#{$wy}-alert-message {
+.wy-alert-message {
     padding: .25rem .5rem;
     background-color: $client-alert-background;
     text-align: center;
@@ -34,7 +31,7 @@ $client-alert-color: variables.$client-alert-color !default;
         pointer-events: auto;
     }
 
-    &.#{$wy}-fade {
+    &.wy-fade {
         transition: all variables.$md-animation-duration variables.$md-animation-curve-default;
         opacity: 0;
         height: 0;
@@ -42,7 +39,7 @@ $client-alert-color: variables.$client-alert-color !default;
         padding-bottom: 0;
         margin-top: 0;
 
-        &.#{$wy}-in {
+        &.wy-in {
             transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default;
             opacity: 1;
             height: auto;
@@ -52,7 +49,7 @@ $client-alert-color: variables.$client-alert-color !default;
         }
     }
 
-    .#{$wy}-button {
+    .wy-button {
         cursor: pointer;
         display: inline-flex;
         flex-shrink: 0;

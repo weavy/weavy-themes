@@ -1,9 +1,5 @@
-@use "../namespace";
-
-$wy: namespace.$prefix;
-
 // External filebrowsers
-.#{$wy}-filebrowser {
+.wy-filebrowser {
   pointer-events: none;
   width: auto;
   left: 0;
@@ -16,7 +12,7 @@ $wy: namespace.$prefix;
   justify-content: center;
 }
 
-.#{$wy}-filebrowser-frame {
+.wy-filebrowser-frame {
   pointer-events: all;
   display: none;
   width: 100%;

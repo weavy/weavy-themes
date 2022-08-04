@@ -1,27 +1,23 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
+@use "../bootstrap/list-group";
 @use "../variables";
-@use "../bootstrap/ports/list-group";
-@use "../bootstrap/mixins" as bs;
-
 @use "./avatar";
 @use "./search";
 @use "./typing";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-messenger-provider {
+.wy-messenger-provider {
   display: flex;
   min-height: 0;
   min-width: 0;
   flex: 1 1 0;
 }
 
-.#{$wy}-messenger-sidebar {
+.wy-messenger-sidebar {
   width: 300px;
   border-right: 1px solid #ccc;
 }
 
-.#{$wy}-messenger-conversation{
+.wy-messenger-conversation{
   overflow-anchor: none;
   display: flex;
   flex-direction: column;                    

@@ -1,14 +1,11 @@
-@use "../namespace";
 @use "../variables";
-
-$wy: namespace.$prefix;
 
 $body-bg: variables.$body-bg !default;
 $border-radius: variables.$border-radius !default;
 $border-width: variables.$border-width !default;
 
 // images in posts, messages and comments
-.#{$wy}-image-grid {
+.wy-image-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -19,7 +16,7 @@ $border-width: variables.$border-width !default;
   column-gap: $border-width;
   row-gap: $border-width;
 
-  .#{$wy}-image {
+  .wy-image {
     padding: 0;
     width: 50%;
     position: relative;
@@ -35,7 +32,7 @@ $border-width: variables.$border-width !default;
     }
   }
 
-  .#{$wy}-image-area {
+  .wy-image-area {
     display: block;
     height: 100%;
     cursor: pointer;
@@ -49,7 +46,7 @@ $border-width: variables.$border-width !default;
     }
   }
 
-  .#{$wy}-more {
+  .wy-more {
     position: absolute;
     line-height: 100%;
     color: #fff;

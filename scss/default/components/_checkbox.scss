@@ -1,8 +1,5 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
 @use "../variables";
-@use "../bootstrap/mixins" as bs;
-
-$wy: namespace.$prefix;
 
 // Include mixin in the relative class that should be suffixed with -check
 @mixin button-check {
@@ -55,6 +52,6 @@ $wy: namespace.$prefix;
 }
 
 // Create a suffixed subclass from .wy-button -> .wy-button-check
-.#{$wy}-button {
+.wy-button {
   @include button-check;
 }

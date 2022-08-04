@@ -1,28 +1,25 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
 @use "../variables";
-@use "../bootstrap/mixins" as bs;
 
-$wy: namespace.$prefix;
-
-.#{$wy}-picker-list {
+.wy-picker-list {
   border: none;
 
-  > .#{$wy}-picker-list-item:first-child, > :first-child .#{$wy}-picker-list-item {
+  > .wy-picker-list-item:first-child, > :first-child .wy-picker-list-item {
     border-top: none;
   }
 
-  > .#{$wy}-picker-list-item:last-child, > :last-child .#{$wy}-picker-list-item {
+  > .wy-picker-list-item:last-child, > :last-child .wy-picker-list-item {
     //border-top: $border-width solid $border-color;
     border-bottom: none;
   }
 }
 
-.#{$wy}-picker-list-item {
+.wy-picker-list-item {
   display: flex;
   align-items: center;
   padding: .25rem .5rem;
 
-  > .#{$wy}-icon {
+  > .wy-icon {
     margin-left: .25rem;
     margin-right: .25rem;
     flex: 0 0 auto;
@@ -34,7 +31,7 @@ $wy: namespace.$prefix;
   }
 }
 
-.#{$wy}-picker-list-item-title {
+.wy-picker-list-item-title {
   flex-grow: 1;
   @include bs.text-truncate();
 }

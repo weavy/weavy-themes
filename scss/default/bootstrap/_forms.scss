@@ -1,9 +1,9 @@
 // Port from bootstrap to only generate content on demand
-// - Update with content from bootstrap/scss/_forms.scss
+// - Copy content from /node_modules/bootstrap/scss/_forms.scss
 // - Replace .selector with %selector
 // - @extend %selector in your code
 
-@use "../../bootstrap" as *;
+@use "../bootstrap" as *;
 
 
 %form-control {
@@ -126,7 +126,8 @@
 %form-control-sm {
   min-height: $input-height-sm;
   padding: $input-padding-y-sm $input-padding-x-sm;
-  @include font-size($input-font-size-sm);
+  //@include font-size($input-font-size-sm);
+  @include font-size($input-font-size);
   @include border-radius($input-border-radius-sm);
 
   &::file-selector-button {
@@ -156,4 +157,11 @@
   font-style: $form-label-font-style;
   font-weight: $form-label-font-weight;
   color: $form-label-color;
+}
+
+%form-invalid {
+  border-color: $danger;
+  &:focus {
+    border-color: $danger;
+  }
 }

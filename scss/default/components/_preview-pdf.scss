@@ -1,19 +1,18 @@
-@use "../namespace";
-@use "../variables";
+@use "../bootstrap" as bs;
+@use "../colors";
+@use "./inputs";
 @use "../utils/backdrop";
 @use "../utils/scrollbar";
+@use "../variables";
 
-$wy: namespace.$prefix;
-
-$navbar-height: variables.$navbar-height !default;
 $zindex-fixed: variables.$zindex-fixed !default;
 $border-radius: variables.$border-radius !default;
 $opacity-backdrop: variables.$opacity-backdrop !default;
 
 :root {
-  --pdfViewer-padding-bottom: #{ $navbar-height + .0625rem } ;
-  --page-margin: 0px auto 1px;
-  --page-border: 0px solid transparent;
+  --pdfViewer-padding-bottom: 0;
+  --page-margin: 2rem auto;
+  --page-border: none;
   --spreadHorizontalWrapped-margin-LR: -3.5px;
   --zoom-factor: 1;
   --viewport-scale-factor: 1;
@@ -37,104 +36,32 @@ $opacity-backdrop: variables.$opacity-backdrop !default;
   --xfa-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
 }
 
-.pdf-preview {
-  .pdf-toolbar {
-    position: fixed;
-    bottom: 1.5rem;
-    z-index: $zindex-fixed;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
+.wy-content-pdf {
 
-    > nav {
-      border-radius: $border-radius;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-      background-color: rgba(50, 54, 57, $opacity-backdrop);
-      height: 3rem;
-
-      @include backdrop.filter;
-    }
-
-    .page-selector {
-      margin-inline-end: 1.25rem;
-
-      input {
-        outline: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: #fff;
-        line-height: 1.5rem;
-        text-align: center;
-        padding: 0px 4px;
-        margin: 0 4px;
-        width: 2em;
-
-        &::selection {
-          background-color: rgb(94,96,97);
-        }
-      }
-    }
-
-    input {
-      outline: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: #fff;
-      line-height: 1.5rem;
-      padding: 0px 4px;
-      margin: 0 4px;
-      width: 4em;
-      text-align: center;
-
-      &::selection {
-        background-color: rgb(94,96,97);
-      }
-    }
-
-    .btn-zoom-out {
-      margin-inline-start: 12px;
-    }
-
-    .btn-zoom-in {
-      margin-inline-end: 12px;
-    }
-
-    .btn-fit-page {
-      margin-inline-start: 12px;
-    }
-
-    .vertical-separator {
-      background: rgba(255, 255, 255, 0.3);
-      height: 20px;
-      width: 1px;
-      display: inline-block;
-    }
+  .wy-input[data-pdf-target=pageNumber] {
+    width: 3rem;
   }
 
-  .pdf-viewerContainer {
+  .wy-input[data-pdf-target=zoomLevel] {
+    width: 5rem;
+  }
+
+  .wy-pdf-container {
     position: absolute;
     width: 100%;
     height: 100%;
     bottom: 0;
-    //overflow: auto;
+    left: 0;
 
     @include scrollbar.scroll-y;
     @include scrollbar.scroll-x;
 
-    .#{$wy}-scrollbars & {
+    .wy-scrollbars & {
       @include scrollbar.custom-scrollbar;
 
       @supports (overflow-y: overlay) {
         overflow-y: overlay;
       }
-    }
-
-    .page {
-      padding-top: #{$navbar-height + .0625rem};
     }
   }
   /* Copyright 2014 Mozilla Foundation
@@ -806,8 +733,8 @@ $opacity-backdrop: variables.$opacity-backdrop !default;
     overflow: visible;
     border: var(--page-border);
     background-clip: content-box;
-    //-o-border-image: url(/images/pdf/shadow.png) 9 9 repeat;
     //border-image: url(/images/pdf/shadow.png) 9 9 repeat;
+    box-shadow: variables.$box-shadow-sm;
     background-color: rgba(255, 255, 255, 1);
   }
 
@@ -891,7 +818,7 @@ $opacity-backdrop: variables.$opacity-backdrop !default;
     top: 0;
     right: 0;
     bottom: 0;
-    background: url("/images/pdf/loading-icon.gif") center no-repeat;
+    //background: url("/images/pdf/loading-icon.gif") center no-repeat;
   }
 
   .pdfViewer .page .loadingIcon.notVisible {
@@ -911,4 +838,3 @@ $opacity-backdrop: variables.$opacity-backdrop !default;
     border: 2px solid transparent;
   }
 }
-

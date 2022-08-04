@@ -1,115 +1,131 @@
-@use "../namespace";
-@use "../variables";
-@use "../bootstrap/mixins" as bs;
+@use "../bootstrap" as bs;
+@use "../bootstrap/buttons";
 @use "../colors";
+@use "../variables";
 
-@use "../bootstrap/ports/buttons";
 
-$wy: namespace.$prefix;
-
-@mixin button {
-  // from reboot
-  border-radius: 0;
-  margin: 0; // 1
-  font-family: inherit;
-  font-size: inherit;
-  text-transform: none;
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
-
-  // "unstyled"
-  background-color: transparent;
-  border: none;
+// default "unstyled" button with support for icon and text
+.wy-button {
+  @extend %btn;
+  @include bs.button-size(bs.$btn-padding-y, bs.$btn-padding-x, bs.$btn-font-size, bs.$btn-border-radius);
+  border-color: transparent;
   box-shadow: none !important;
+  cursor: pointer;
   display: inline-flex;
-  line-height: 1;
-  padding: .25rem;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  gap: .25rem;
 
-  min-width: 2rem;
-  min-height: 2rem;
-
-  &:hover,
-  &:focus {
-    color: variables.$icon-hover-color;
+  &:hover {
+    background-color: variables.$icon-hover-bg;
   }
 
-  &.#{$wy}-active {
+  &:focus {
     background-color: variables.$icon-focus-bg;
   }
-  
-  span:not(.#{$wy}-icon) {
-    margin-left: .25rem;
-  }
 
-  // spinner, e.g. for attachments upload etc.
-  .#{$wy}-spinner:not(.#{$wy}-spin) {
-    display: none;
-  }
- }
+  &:active, &.wy-active {
+    background-color: variables.$icon-focus-bg;
 
-@mixin button-icon {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    color: variables.$icon-color;
-    
     &:hover {
-      color: variables.$icon-hover-color;
-      background-color: variables.$icon-hover-bg;
-    }
-
-    &:focus {
       background-color: variables.$icon-focus-bg;
     }
+  }
+  // dark theme
+  .wy-dark & {
+    color: variables.$icon-light-color;
+  }
 
-    &.#{$wy}-active {
-      background-color: variables.$icon-focus-bg;
-      &:hover {
-        background-color: variables.$icon-focus-bg;
+
+  &:not(.wy-button-icon) {
+    .wy-icon {
+      &:first-child {
+        margin-left: -.5rem;
       }
 
+      &:last-child {
+        margin-right: -.5rem;
+      }
+    }
+  }
+
+  &:not(.wy-button-primary) {
+    .wy-icon {
+      color: variables.$icon-color;
     }
 
- }
-
-.#{$wy}-button {
-  @include button;
-}
-
-.#{$wy}-button-icon {
-  @include button-icon;
-}
-
-.#{$wy}-button-primary {
-  &.#{$wy}-button-icon {
-    color: variables.$icon-color-primary;
-    
     &:hover {
-        color: variables.$icon-hover-color-primary;
+      .wy-icon {
+        color: variables.$icon-hover-color;
+      }
+    }
+
+    .wy-dark & {
+      .wy-icon {
+        color: variables.$icon-light-color;
+      }
+
+      &:hover {
+        color: variables.$icon-light-hover-color;
+
+        .wy-icon {
+          color: variables.$icon-light-hover-color;
+        }
+      }
     }
   }
-  &:not(.#{$wy}-button-icon) {
-    @extend 
-      %btn, 
-      %btn-primary;
+}
+
+// text in button with icon and text
+.wy-button-text { 
+  @include bs.text-truncate();
+}
+
+// button with only icon (no text)
+.wy-button-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: .25rem;
+  line-height: 1;
+  border-radius: 50%;
+}
+
+// primary button
+.wy-button-primary {
+  // regular button
+  &:not(.wy-button-icon) {
+    @include bs.button-variant(colors.$primary, colors.$primary);
+  }
+
+  // icon button
+  &.wy-button-icon {
+    color: variables.$icon-color-primary;
+
+    &:hover {
+      color: variables.$icon-hover-color-primary;
+    }
+
+    .wy-dark & {
+      .wy-icon {
+        color: variables.$icon-light-color-primary;
+      }
+
+      &:hover {
+        color: variables.$icon-light-hover-color-primary;
+
+        .wy-icon {
+          color: variables.$icon-light-hover-color-primary;
+        }
+      }
+    }
   }
 }
 
-.#{$wy}-button-secondary {
-  @extend 
-    %btn, 
-    %btn-secondary;
-}
-
-.#{$wy}-buttons {
-  display:flex;
+.wy-buttons {
+  display: flex;
   align-items: center;
 
-  >:not(:last-child) {
+  > :not(:last-child) {
     margin: 0 .5rem 0 0;
   }
 }

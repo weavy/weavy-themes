@@ -1,0 +1,41 @@
+@use "../variables";
+
+
+// big file type icon
+.wy-content-icon {
+  background-color: variables.$body-bg;
+  border-radius: variables.$border-radius-lg;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  text-align: center;
+  padding: 1rem 2rem;
+
+  .wy-icon-stack, .wy-icon {
+    width: 8rem;
+    height: 8rem;    
+  }
+
+  .wy-dark & {
+    background-color: rgba(variables.$dark, variables.$opacity-backdrop);
+    color: variables.$navbar-dark-color;
+
+    a {
+      color: variables.$primary-300;
+    }
+    .wy-icon {
+      color: variables.$icon-light-color;
+    }
+
+    .wy-icon-stack {
+      .wy-icon:last-child {
+        background-color: rgba(variables.$dark, variables.$opacity-backdrop);
+      }
+    }
+
+  }
+
+}
+  

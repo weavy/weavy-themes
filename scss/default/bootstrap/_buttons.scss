@@ -1,11 +1,11 @@
 // Port from bootstrap to only generate content on demand
-// - Update with content from bootstrap/scss/_buttons.scss
+// - Copy content from /node_modules/bootstrap/scss/_buttons.scss
 // - Replace .selector with %selector
 // - @extend %selector in your code
 
 // Checkboxes are handled elsewhere
 
-@use "../../bootstrap" as *;
+@use "../bootstrap" as *;
 
 %btn {
   display: inline-block;

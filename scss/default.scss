@@ -1,3 +1,6 @@
+@use "./default/reboot";
+@use "./default/fonts";
+
 @use "./default/components/alert";
 @use "./default/components/appbar";
 @use "./default/components/attachments";
@@ -14,10 +17,11 @@
 @use "./default/components/emoji";
 @use "./default/components/filebrowser";
 @use "./default/components/icons";
-@use "./default/components/inputs";
 @use "./default/components/image-grid";
+@use "./default/components/inputs";
 @use "./default/components/message-editor";
 @use "./default/components/messages";
+@use "./default/components/messenger";
 @use "./default/components/nav";
 @use "./default/components/overlays";
 @use "./default/components/pager";
@@ -25,10 +29,13 @@
 @use "./default/components/panels";
 @use "./default/components/picker-list";
 @use "./default/components/preview-embed";
+@use "./default/components/preview-html";
+@use "./default/components/preview-icon";
 @use "./default/components/preview-image";
 @use "./default/components/preview-media";
 @use "./default/components/preview-pdf";
 @use "./default/components/preview-text";
+@use "./default/components/preview";
 @use "./default/components/reactions";
 @use "./default/components/scroll";
 @use "./default/components/search";

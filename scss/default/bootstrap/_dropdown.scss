@@ -1,9 +1,9 @@
 // Port from bootstrap to only generate content on demand
-// - Update with content from bootstrap/scss/_dropdown.scss
+// - Copy content from /node_modules/bootstrap/scss/_dropdown.scss
 // - Replace .selector with %selector
 // - @extend %selector in your code
 
-@use "../../bootstrap" as *;
+@use "../bootstrap" as *;
 
 $dropdown-spacer: $dropdown-spacer !default;
 

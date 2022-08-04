@@ -1,13 +1,10 @@
 @use "sass:map";
-@use "../namespace";
 @use "../variables";
-
-$wy: namespace.$prefix;
 
 $toast-padding-x: variables.$toast-padding-x !default;
 $toast-padding-y: variables.$toast-padding-y !default;
 
-.#{$wy}-toasts {
+.wy-toasts {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -20,15 +17,15 @@ $toast-padding-y: variables.$toast-padding-y !default;
   z-index: variables.$zindex-fixed;
 }
 
-.#{$wy}-toast {
+.wy-toast {
   margin: 0 0 1rem;
 }
 
-.#{$wy}-toast-body {
+.wy-toast-body {
   padding: $toast-padding-y $toast-padding-x;
 }
 
-.#{$wy}-button-toast {
+.wy-button-toast {
   font-weight: variables.$font-weight-normal;
   text-decoration: variables.$link-decoration;
 
@@ -43,7 +40,7 @@ $toast-padding-y: variables.$toast-padding-y !default;
   }
 
   &:disabled,
-  &.#{$wy}-disabled {
+  &.wy-disabled {
     color: variables.$btn-link-disabled-color;
   }
 

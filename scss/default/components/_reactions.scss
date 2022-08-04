@@ -1,33 +1,31 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
+@use "../bootstrap/dropdown";
 @use "../variables";
-@use "../colors";
-@use "../bootstrap/ports/dropdown";
-@use "../bootstrap/ports/tables";
+@use "./tables";
 
-$wy: namespace.$prefix;
 
-.#{$wy}-reaction-count {
+.wy-reaction-count {
   margin: 0 .25rem;
   line-height: 1;
   color: variables.$text-muted;
   font-size: variables.$font-size-sm;
 }
 
-.#{$wy}-reaction-menu {
+.wy-reaction-menu {
   padding: .5rem;
   font-size: 1.125rem;
   border-radius: 2.5rem;
 }
 
-.#{$wy}-reaction-picker {
+.wy-reaction-picker {
   display: flex;
 
-  .#{$wy}-reaction-button {
+  .wy-reaction-button {
     color: unset;
   }
 }
 
-.#{$wy}-reactions {
+.wy-reactions {
   display: inline-flex;
   align-items: center;
   column-gap: .125rem;
@@ -38,6 +36,24 @@ $wy: namespace.$prefix;
   }
 }
 
-.#{$wy}-table-reactions {
+.wy-table-reactions {
   @extend %table, %table-icons;
+
+  // avatar
+  td:first-child {
+    width: 2rem;
+    padding-left: 0;
+  }
+
+  // name
+  td:nth-child(2) {
+    width: 100%;
+    @include bs.text-truncate();
+  }
+
+  // reaction
+  td:last-child {
+    width: 2rem;
+    padding-right: 0;
+  }
 }

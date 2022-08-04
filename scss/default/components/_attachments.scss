@@ -1,19 +1,16 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
+@use "../bootstrap/list-group";
 @use "../variables";
-@use "../bootstrap/ports/list-group";
-@use "../bootstrap/mixins" as bs;
 
-$wy: namespace.$prefix;
-
-.#{$wy}-attachments,
-.#{$wy}-meetings {
+.wy-attachments,
+.wy-meetings {
   border: none;
   border-radius: variables.$border-radius-sm;
   flex: 1 1 100%;
   min-width: 0;
 
-  .#{$wy}-attachment,
-  .#{$wy}-meeting {
+  .wy-attachment,
+  .wy-meeting {
     border-left: none;
     border-right: none;
   }
@@ -32,8 +29,8 @@ $wy: namespace.$prefix;
   }
 }
 
-.#{$wy}-attachment,
-.#{$wy}-meeting {
+.wy-attachment,
+.wy-meeting {
   @extend 
   %list-group-item, 
   %list-group-item-action;
@@ -43,19 +40,24 @@ $wy: namespace.$prefix;
   cursor: pointer;
 }
 
-.#{$wy}-attachment-icon {
+.wy-attachment-icon {
   flex: 0 0 auto;
   display: flex;
+
+  .wy-icon, .wy-icon-stack {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
-.#{$wy}-attachment-content {
+.wy-attachment-content {
   flex: 1 1 100%;
   min-width: 0;
   margin-left: .5rem;
   margin-right: .5rem;
 }
 
-.#{$wy}-attachment-title {
+.wy-attachment-title {
   font-family: variables.$headings-font-family;
   font-style: variables.$headings-font-style;
   font-weight: variables.$headings-font-weight;
@@ -65,7 +67,7 @@ $wy: namespace.$prefix;
   margin: 0;
 }
 
-.#{$wy}-attachment-meta {
+.wy-attachment-meta {
   @include bs.text-truncate();
   @include bs.font-size(variables.$small-font-size);
   color: variables.$text-muted;

@@ -1,22 +1,19 @@
-@use "../namespace";
-@use "../variables";
+@use "../bootstrap/forms";
 @use "../colors";
-@use "../bootstrap/ports/forms";
+@use "../variables";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-avatar {
+.wy-avatar {
   border-radius: 50%;
 }
 
-.#{$wy}-avatar-header {
+.wy-avatar-header {
     padding: 1.5rem;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.#{$wy}-avatar-input {
+.wy-avatar-input {
     @extend 
         %form-control, 
         %form-control-sm;
@@ -29,11 +26,11 @@ $wy: namespace.$prefix;
     margin-bottom: 1.5rem;
 }
 
-.#{$wy}-avatar-presence {
+.wy-avatar-presence {
     position: relative;
 }
 
-.#{$wy}-avatar-display-name {
+.wy-avatar-display-name {
     font-size: variables.$h4-font-size;
     font-weight: variables.$display-font-weight;
     line-height: variables.$display-line-height;
@@ -42,13 +39,9 @@ $wy: namespace.$prefix;
 
 
 // presence indicator
-.#{$wy}-presence {
-  display: none;
-}
-
-.#{$wy}-presence-active {
-  display: block;
-  background-color: colors.$green-400;
+.wy-presence {
+  display: none; // initially hidden
+  background-color: colors.$gray-100;
   width: .75rem;
   height: .75rem;
   border-radius: 50%;
@@ -56,4 +49,10 @@ $wy: namespace.$prefix;
   position: absolute;
   bottom: 0;
   right: -5%;
+}
+
+// online
+.wy-presence-active {
+  background-color: colors.$green-400;
+  display: block;
 }

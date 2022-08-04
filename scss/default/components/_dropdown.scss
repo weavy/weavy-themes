@@ -1,19 +1,15 @@
-@use "../namespace";
-@use "../variables";
-@use "../bootstrap/mixins" as bs;
+@use "../bootstrap" as bs;
+@use "../bootstrap/dropdown";
 @use "../colors";
+@use "../variables";
 
-@use "../bootstrap/ports/dropdown";
-
-$wy: namespace.$prefix;
-
-.#{$wy}-dropdown,
-.#{$wy}-dropup {
+.wy-dropdown,
+.wy-dropup {
   position: relative
 }
 
-.#{$wy}-dropup {
-  .#{$wy}-dropdown-menu {
+.wy-dropup {
+  .wy-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-top: 0;
@@ -22,16 +18,16 @@ $wy: namespace.$prefix;
 }
 
 
-.#{$wy}-dropdown-toggle {
+.wy-dropdown-toggle {
   white-space: nowrap;
 }
 
-.#{$wy}-dropdown-menu {
+.wy-dropdown-menu {
   @extend %dropdown-menu;
 
   display: block;
 
-  .#{$wy}-dropup & {
+  .wy-dropup & {
       top: auto;
       bottom: 100%;
       margin-top: 0;
@@ -71,8 +67,22 @@ $wy: namespace.$prefix;
       color: if($c == variables.$color-contrast-light, variables.$icon-light-color!important, variables.$icon-color);
     }
   }
+
+  // dropdown item with icon for marking selection option
+  &.#{wy}-option {
+    .wy-icon {
+      visibility: hidden;
+    }
+    &.#{wy}-selected {
+      .wy-icon {
+        visibility: visible;
+      } 
+    }
+  }
+
 }
 
 .#{wy}-dropdown-divider {
   @extend %dropdown-divider;
 }
+

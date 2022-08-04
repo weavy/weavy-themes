@@ -1,13 +1,10 @@
-@use "../namespace";
 @use "../variables";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-nav-tabs {
+.wy-nav-tabs {
   border-bottom: none;
   padding: 0 .5rem;
 
-  .#{$wy}-nav-link {
+  .wy-nav-link {
     margin-bottom: 0;
     border: none;
     border-bottom: .125rem solid transparent;
@@ -21,12 +18,12 @@ $wy: namespace.$prefix;
       border-color: transparent;
     }
 
-    &.#{$wy}-disabled {
+    &.wy-disabled {
       background-color: transparent;
       border-color: transparent;
     }
 
-    &.#{$wy}-active {
+    &.wy-active {
       color: variables.$link-color;
       background-color: transparent;
       border-color: variables.$link-color;
@@ -34,11 +31,11 @@ $wy: namespace.$prefix;
   }
 }
 
-.#{$wy}-nav-dark {
-  .#{$wy}-nav-link, .#{$wy}-button-link {
+.wy-nav-dark {
+  .wy-nav-link, .wy-button-link {
     color: variables.$navbar-dark-color;
 
-    &.#{$wy}-active {
+    &.wy-active {
       color: variables.$navbar-dark-active-color;
       border-color: variables.$navbar-dark-active-color;
     }
@@ -48,7 +45,7 @@ $wy: namespace.$prefix;
       color: variables.$navbar-dark-hover-color;
     }
 
-    &.#{$wy}-disabled {
+    &.wy-disabled {
       color: variables.$navbar-dark-disabled-color;
     }
   }

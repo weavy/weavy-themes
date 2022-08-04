@@ -1,41 +1,29 @@
 @use "sass:color";
-
-@use "../namespace";
-@use "../variables";
 @use "../colors";
-
+@use "../variables";
 @use "./buttons";
 @use "./reactions";
-
-$wy: namespace.$prefix;
 
 $border-radius: variables.$border-radius !default;
 $border-radius-bubble: variables.$border-radius-bubble !default;
 
-.#{$wy}-messages {
+.wy-messages {
   padding: 1rem 1rem 0 .75rem;
   flex: 1 1 100%;
 
-  > .#{$wy}-date-separator {
-    margin-top: -1rem;
-  }
-
-  > .#{$wy}-date-separator ~ .#{$wy}-date-separator {
-    margin-top: 0;
-  }
 }
 
-.#{$wy}-message-placeholder {
+.wy-message-placeholder {
   opacity: .5;
 }
 
-.#{$wy}-date-separator {
+.wy-date-separator {
   font-size: variables.$font-size-xs;
   pointer-events: none;
   margin: .5rem;
   text-align: center;
   position: sticky;
-  top: 3.5rem;
+  top: 1.5rem;
   z-index: 2;
 
   time {
@@ -46,36 +34,41 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   }
 }
 
-.#{$wy}-message {
+.wy-appbars + .wy-pane-body .wy-date-separator {
+  top: variables.$navbar-height + 1.5rem;
+}
+
+
+.wy-message {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   margin-bottom: 1rem;
 
-  .#{$wy}-image-grid,
-  .#{$wy}-attachments {
+  .wy-image-grid,
+  .wy-attachments {
     border-radius: $border-radius-bubble * .5;
   }
 
   &:hover {
-    .#{$wy}-message-buttons {
+    .wy-message-buttons {
       opacity: 1;
     }
   }
 
-  .#{$wy}-reaction-menu {
+  .wy-reaction-menu {
     right: 0;
   }
 }
 
-.#{$wy}-message-meta {
+.wy-message-meta {
   font-size: variables.$font-size-xs;
   margin: 0 0 .25rem .25rem;
   color: variables.$text-muted;
 }
 
-.#{$wy}-message-bubble {
-  background-color: colors.$gray-100;
+.wy-message-bubble {
+  background-color: colors.$gray-50;
   border-radius: $border-radius-bubble;
   display: flex; //inline-block;
   flex-direction: row;
@@ -95,11 +88,17 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   }
 }
 
-.#{$wy}-message-text {
+.wy-message-text {
   overflow-wrap: break-word;
   min-width: 0;
 
-  pre {
+  // inline code
+  :not(pre) > code {
+    overflow-wrap: inherit;
+  }
+
+  // code block
+  pre, pre > code {
     white-space: pre-wrap;
   }
 
@@ -112,11 +111,11 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   }
 }
 
-.#{$wy}-message-author {
+.wy-message-author {
   margin: 1.375rem .5rem 0 0;
 }
 
-.#{$wy}-message-content {
+.wy-message-content {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -125,25 +124,25 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   min-width: 0;
   position: relative; // so that we can position reactions
 
-  .#{$wy}-reactions {
+  .wy-reactions {
     position: absolute;
     bottom: -.75rem;
     left: .75rem;
-    background: colors.$gray-100;
+    background: colors.$gray-50;
     border-radius: 1.5rem;
-    border: variables.$border-width solid colors.$gray-100;
+    border: variables.$border-width solid colors.$gray-50;
     padding: .125rem;
   }
 }
 
-.#{$wy}-message-content-row {
+.wy-message-content-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 100%;
 }
 
-.#{$wy}-message-buttons {
+.wy-message-buttons {
   display: flex;
   flex-direction: row;
   column-gap: .25rem;
@@ -152,53 +151,53 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
 }
 
 // override some styles for message by current user
-.#{$wy}-message-me {
+.wy-message-me {
   margin-right: 0;
   margin-left: 2.5rem;
   align-items: flex-end;
 
-  .#{$wy}-message-meta {
+  .wy-message-meta {
     margin: 0 .25rem .25rem 0;
   }
 
-  .#{$wy}-message-content {
+  .wy-message-content {
     align-items: flex-end;
   }
 
-  .#{$wy}-message-content-row {
+  .wy-message-content-row {
     flex-direction: row-reverse;
   }
 
-  .#{$wy}-message-buttons {
+  .wy-message-buttons {
     flex-direction: row-reverse;
   }
 
-  .#{$wy}-message-bubble {
-    background-color: colors.$primary-100;
+  .wy-message-bubble {
+    background-color: colors.$primary-50;
   }
 
-  .#{$wy}-reaction-menu {
+  .wy-reaction-menu {
     justify-content: flex-start;
     right: auto;
   }
 
-  .#{$wy}-reactions {
-    background: colors.$primary-100;
-    border-color: colors.$primary-100;
+  .wy-reactions {
+    background: colors.$primary-50;
+    border-color: colors.$primary-50;
     left: auto;
     right: .75rem;
   }
 }
 
 // override some styles for message that contains only emoji
-.#{$wy}-message-emoji {
-  .#{$wy}-message-bubble {
+.wy-message-emoji {
+  .wy-message-bubble {
     background: none;
     padding: 0;
   }
 
-  .#{$wy}-message-text {
-    .#{$wy}-emoji {
+  .wy-message-text {
+    .wy-emoji {
       width: 3rem;
       height: 3rem;
       margin: 0;
@@ -207,7 +206,7 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
 }
 
 // message status indicator (sending, sent, delivered, read)
-.#{$wy}-readby-status {
+.wy-readby-status {
   display: flex;
   justify-content: flex-end;
   margin-top: -.5rem;
@@ -218,7 +217,7 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   }
 }
 
-.#{$wy}-message-toaster {
+.wy-message-toaster {
   position: sticky;
   top: 3.5rem;
   bottom: 3.5rem;
@@ -238,7 +237,7 @@ $border-radius-bubble: variables.$border-radius-bubble !default;
   color: colors.$white;
 }
 
-.#{$wy}-message-readmore {
+.wy-message-readmore {
   justify-self: center;
   text-align: center;
 }

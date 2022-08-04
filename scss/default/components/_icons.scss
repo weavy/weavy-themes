@@ -1,32 +1,21 @@
-@use "../namespace";
-@use "../variables";
 @use "../colors";
+@use "../variables";
 
-$wy: namespace.$prefix !default;
 $icon-color: variables.$icon-color !default;
 
-.#{$wy}-icon {
-  color: $icon-color;
-  cursor: pointer;
+.wy-icon {
+  //color: $icon-color;
+  //fill: currentColor;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  //padding: .25rem;
   flex: 0 0 auto;
   position: relative;
-
   width: 1.5rem;
   height: 1.5rem;
-  font-size: 1.5rem;
-
-  svg {
-      fill: currentColor;
-      width: 1.5rem;
-      height: 1.5rem;
-  }
 }
 
-.#{$wy}-icon-overlay {
+.wy-icon-overlay {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -35,60 +24,31 @@ $icon-color: variables.$icon-color !default;
     border: 1px solid colors.$white;
 }
 
-
 // stacked icons (icon+overlay icon)
-.#{$wy}-icon-stack {
+.wy-icon-stack {
   display: inline-block;
   position: relative;
   line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
 
-  .#{$wy}-icon:last-child {
+  .wy-icon:first-child {
+    width:100%;
+    height:100%;
+  }
+
+  .wy-icon:last-child {
     position: absolute;
     bottom: 0;
     right: 0;
-    background: colors.$white;
+    width:50%;
+    height:50%;
+    background-color: variables.$body-bg;
     border-radius: 50%;
   }
 }
 
-// icon colors
-svg.#{$wy}-icon:not(.#{$wy}-text-native) * {
-  // by default, every icon will inherit the text color of its parent,
-  // to override this and show the icon with its native colors (for example on logos) add the text-native class
+// icons normally inherit the text color of its parent
+.wy-icon:not(.wy-icon-native) * {  
   fill: currentColor;
 }
-
-svg.#{$wy}-icon.#{$wy}-text-icon * {
-  // default icon color according to material design
-  fill: $icon-color;
-}
-
-/* // override defaults to handle margins, flex etc.
-img[width="24"] + .#{$wy}-presence {
-  width: 6px;
-  height: 6px;
-  top: 18px;
-  left: 18px;
-}
-
-img[width="32"] + .#{$wy}-presence {
-  width: 8px;
-  height: 8px;
-  top: 24px;
-  left: 24px;
-}
-
-img[width="48"] + .#{$wy}-presence {
-  width: 12px;
-  height: 12px;
-  top: 36px;
-  left: 36px;
-}
-
-img[width="128"] + .#{$wy}-presence {
-  width: 32px;
-  height: 32px;
-  top: 96px;
-  left: 96px;
-}
- */

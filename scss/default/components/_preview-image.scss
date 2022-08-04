@@ -1,9 +1,6 @@
-@use "../namespace";
 @use "../variables";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-content-image {
+.wy-content-image {
   min-width: 0;
   display: flex;
   align-items: center;
@@ -13,15 +10,15 @@ $wy: namespace.$prefix;
   max-height: 100%;
   max-width: 100%;
 
-  &.#{$wy}-intrinsic-image {
+  &.wy-intrinsic-image {
     object-fit: scale-down;
   }
 
-  &:not(.#{$wy}-intrinsic-image) {
+  &:not(.wy-intrinsic-image) {
     height: 100%;
     width: 100%;
     // Similar to object-fit: contain; but works for divs. Must subtract margins.
-    --max-width: #{'min(calc((100vh - 3rem) * (var(--width) / var(--height))), calc(var(--width) * 1px), 100%)'};
+    --max-width: #{'min(calc((100vh - 3rem - 1px) * (var(--width) / var(--height))), calc(var(--width) * 1px), 100%)'};
     --max-height: #{'min(calc(100vw * (var(--height) / var(--width))), calc(var(--height) * 1px), 100%)'};
 /*     // With sidebar
     body.controller-content & {
@@ -41,7 +38,7 @@ $wy: namespace.$prefix;
   }
 
 
-  &.#{$wy}-zoom {
+  &.wy-zoom {
     cursor: zoom-out;
     transition: transform variables.$md-animation-duration variables.$md-animation-curve-default, transform-origin variables.$md-animation-duration step-start;
   }
@@ -53,15 +50,15 @@ $wy: namespace.$prefix;
     width: 100%;
     height: 100%;
 
-    &:not(.#{$wy}-loading-transition):not([data-controller~="image"]) ~ .#{$wy}-spinner {
+    &:not(.wy-loading-transition):not([data-controller~="image"]) ~ .wy-spinner {
       display: none;
     }
 
-    &.#{$wy}-loading, &[data-controller~="image"] {
+    &.wy-loading, &[data-controller~="image"] {
       transition: opacity 0.15s ease-out;
       opacity: 0;
 
-      &.#{$wy}-loaded {
+      &.wy-loaded {
         opacity: 1;
         transition: opacity 0.15s ease-out;
 
@@ -71,18 +68,18 @@ $wy: namespace.$prefix;
           opacity: 0;
         }
 
-        ~ .#{$wy}-spinner {
+        ~ .wy-spinner {
           display: none;
         }
       }
     }
 
-    &.#{$wy}-responsive-image-thumb {
+    &.wy-responsive-image-thumb {
       position: absolute;
       z-index: -1;
     }
 
-    ~ .#{$wy}-spinner {
+    ~ .wy-spinner {
       position: absolute;
     }
   }

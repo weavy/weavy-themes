@@ -1,118 +1,77 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
+@use "../colors";
 @use "../utils/backdrop";
 @use "../utils/position";
 @use "../variables";
-@use "../colors";
-@use "../bootstrap/mixins" as bs;
 
-$wy: namespace.$prefix;
-
-.#{$wy}-appbars {
+.wy-appbars {
   @include position.sticky-top;
+
   @include backdrop.filter {
-    > .#{$wy}-appbar {
+    > .wy-appbar {
       backdrop-filter: none;
     }
   }
 }
 
-.#{$wy}-appbar {
+.wy-appbar {
   display: grid;
   align-items: center;
   justify-content: space-between;
   height: variables.$navbar-height;
   padding: variables.$navbar-padding-y variables.$navbar-padding-x;
   flex: 0 0 variables.$navbar-height;
-
   grid-template-columns: minmax(2rem, max-content) minmax(0, max-content) minmax(2rem, max-content);
   column-gap: .5rem;
 
   @include backdrop.filter;
 
-  .#{$wy}-badge {
+  .wy-badge {
     align-self: center;
+  }
+
+  .wy-button {
+    height: 2rem;
   }
 }
 
-.#{$wy}-appbar-buttons {
+.wy-appbar-buttons {
   display: flex;
   flex: 0 0 1rem;
 }
 
-.#{$wy}-appbar-text {
+.wy-appbar-text {
   @include bs.text-truncate();
   color: inherit !important;
   user-select: none;
+  a {
+    color: inherit;
+  }
 }
 
-.#{$wy}-appbar {
-  // Light theme (default)
-  &, .#{$wy}-light &, &.#{$wy}-light {
+.wy-appbar {
+  // light theme (default)
+  &, .wy-light &, &.wy-light {
     background-color: rgba(colors.$gray-50, variables.$opacity-backdrop);
     color: variables.$navbar-light-color;
     border-bottom: variables.$border-width solid rgba(colors.$gray-200, variables.$opacity-backdrop);
-  
-    .#{$wy}-button {
-      &:not(.#{$wy}-button-icon) {
-        color: variables.$navbar-light-color;
-        display: inline;
-
-        &.#{$wy}-active {
-          color: variables.$navbar-light-active-color;
-        }
-  
-        &:hover,
-        &:focus {
-          color: variables.$navbar-light-hover-color;
-        }
-  
-        &.#{$wy}-disabled {
-          color: variables.$navbar-light-disabled-color;
-        }
-      }
-    }
   }
-
-  // Dark theme
-  .#{$wy}-dark &, &.#{$wy}-dark {
+  // dark theme
+  .wy-dark &, &.wy-dark {
     background-color: rgba(colors.$dark, variables.$opacity-backdrop);
     color: variables.$navbar-dark-color;
     border-bottom: variables.$border-width solid rgba(variables.$border-color-dark, variables.$opacity-backdrop);
-  
-    .#{$wy}-button {
-      &:not(.#{$wy}-button-icon) {
-        color: variables.$navbar-dark-color;
-        display: inline;
-        
-        &.#{$wy}-active {
-          color: variables.$navbar-dark-active-color;
-        }
-  
-        &:hover,
-        &:focus {
-          color: variables.$navbar-dark-hover-color;
-        }
-  
-        &.#{$wy}-disabled {
-          color: variables.$navbar-dark-disabled-color;
-        }
-      }
-    }
-  
-    .#{$wy}-icon {
-      color: variables.$navbar-dark-color;
-    }
   }
 }
 
-.#{$wy}-footerbars {
+.wy-footerbars {
   padding-bottom: 3.25rem;
 }
 
-.#{$wy}-footerbar {
+.wy-footerbar {
   position: absolute;
   bottom: 0;
-  left:0;
+  left: 0;
   right: 0;
   z-index: variables.$zindex-sticky;
 
@@ -130,16 +89,17 @@ $wy: namespace.$prefix;
     @include backdrop.filter;
   }
 
-  .#{$wy}-buttons {
-    flex-direction: row-reverse; 
-    >:not(:last-child) {
+  .wy-buttons {
+    flex-direction: row-reverse;
+
+    > :not(:last-child) {
       margin: 0 0 0 .5rem;
     }
   }
 }
 
-.#{$wy}-footerbars-fixed {
-  .#{$wy}-footerbar {
+.wy-footerbars-fixed {
+  .wy-footerbar {
     position: fixed;
 
     &::after {

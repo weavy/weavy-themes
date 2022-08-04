@@ -1,27 +1,30 @@
-@use "../namespace";
-@use "../variables";
+@use "../bootstrap/forms";
 @use "../colors";
-@use "../bootstrap/ports/forms";
+@use "../variables";
 
-$wy: namespace.$prefix;
 
 @mixin input {
-  @extend 
-    %form-control, 
-    %form-control-sm;
-  
-  background: colors.$light;
-  border-color: transparent;
+  // @extend %form-control, %form-control-sm;
+  // background: colors.$light;
+  // border-color: transparent;
 }
 
-.#{$wy}-input {
-  @include input;
+.wy-input {
+  @extend %form-control;
 }
 
-.#{$wy}-description {
+.wy-input-sm {
+  @extend %form-control, %form-control-sm;
+}
+
+.wy-is-invalid {
+  @extend %form-invalid;
+}
+
+.wy-description {
   @extend %form-text
 }
 
-.#{$wy}-label {
+.wy-label {
   @extend %form-label;
 }

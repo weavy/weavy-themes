@@ -1,0 +1,52 @@
+@use "../bootstrap/tables";
+@use "../variables";
+
+// table with avatar/icon in first and last column
+%table-icons {
+  table-layout: fixed;
+
+  th, td {
+    // cell with img or icon
+    &:first-child, &:last-child {
+      color: variables.$icon-color !important;
+      vertical-align: middle;
+      text-align: center;
+      padding: variables.$table-cell-padding-y-sm variables.$table-cell-padding-x;
+      width: 2rem + variables.$table-cell-padding-x;
+      // reset th styles (for dropdown menus in th)
+      font-size: variables.$font-size-base;
+      font-weight: variables.$font-weight-base;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    &:first-child {
+      padding-right: 0;
+    }
+
+    &:last-child {
+      padding-left: 0;
+    }
+  }
+}
+
+
+.wy-table-trashed {
+  th, td {
+    color: variables.$text-muted;
+    text-decoration: line-through;
+    &:not(:last-child) {
+      opacity: variables.$btn-disabled-opacity;
+    }
+
+    > a {
+      color: variables.$text-muted;
+    }
+  }
+
+  &:hover {
+    th, td {
+      opacity: 1;
+    }
+  }
+}

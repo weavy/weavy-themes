@@ -1,20 +1,16 @@
-@use "../namespace";
+@use "../bootstrap" as bs;
+@use "../bootstrap/list-group";
 @use "../variables";
-@use "../bootstrap/ports/list-group";
-@use "../bootstrap/mixins" as bs;
-
 @use "./avatar";
 @use "./search";
 @use "./typing";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-conversation {
+.wy-conversation {
   display: flex;
   position: relative;
 }
 
-.#{$wy}-conversation-link {
+.wy-conversation-link {
   @extend 
     %list-group-item, 
     %list-group-item-action;
@@ -24,32 +20,32 @@ $wy: namespace.$prefix;
   z-index: unset !important;
 
   
-  &.#{$wy}-active {
+  &.wy-active {
     background-color: variables.$list-group-hover-bg;
   }
 }
 
-.#{$wy}-conversation-body {
+.wy-conversation-body {
   flex-grow: 1;
   min-width: 0;
   margin-left: 1rem;
 }
 
-.#{$wy}-conversation-header {
+.wy-conversation-header {
   display: flex;
   align-items: center;
 }
 
-.#{$wy}-conversation-title {
+.wy-conversation-title {
   @include bs.text-truncate();
   margin-right: auto;
 
-  .#{$wy}-conversation.#{$wy}-unread & {
+  .wy-conversation.wy-unread & {
     font-weight: variables.$font-weight-bold;
   }
 }
 
-.#{$wy}-conversation-time {
+.wy-conversation-time {
   color: variables.$text-muted;
   font-size: variables.$font-size-xs;
   margin-left: .5rem;
@@ -57,7 +53,7 @@ $wy: namespace.$prefix;
   flex-shrink: 0;
 }
 
-.#{$wy}-conversation-summary {
+.wy-conversation-summary {
   @include bs.text-truncate();
 
   color: variables.$text-muted;
@@ -68,26 +64,26 @@ $wy: namespace.$prefix;
   height: 1.5rem;
   line-height: 1.5rem;
 
-  .#{$wy}-emoji {
+  .wy-emoji {
     vertical-align: -.3125rem;
   }
 
-  .#{$wy}-icon {
+  .wy-icon {
     vertical-align: -.4375rem;
   }
 
-  .#{$wy}-conversation.#{$wy}-unread & {
+  .wy-conversation.wy-unread & {
     font-weight: variables.$font-weight-medium;
     color: variables.$body-color;
   }
 
-  .#{$wy}-typing-show {
+  .wy-typing-show {
     @include bs.text-truncate();
     font-weight: variables.$font-weight-normal;
   }
 }
 
-.#{$wy}-conversation-actions {
+.wy-conversation-actions {
   display: flex;
   align-items: center;
   position: absolute;

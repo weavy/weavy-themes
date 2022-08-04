@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "./utils/palette";
+@import "../../node_modules/bootstrap/scss/functions";
 
 // primary color
 $primary: #156B93;
@@ -18,7 +19,6 @@ $gray-800: palette.color-shade($white, "800");
 $gray-900: palette.color-shade($white, "900");
 $gray-950: palette.color-shade($white, "950");
 $black: #000;
-
 
 // genererate colors based on $primary
 $generated-colors: palette.generate-colors($primary);

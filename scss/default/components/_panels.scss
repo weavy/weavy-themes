@@ -1,11 +1,8 @@
-@use "../namespace";
 @use "../colors";
-@use "../variables";
 @use "../utils/backdrop";
+@use "../variables";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-panels {
+.wy-panels {
     position: absolute;
     top: 0;
     right: 0;
@@ -16,8 +13,7 @@ $wy: namespace.$prefix;
     overflow-x: hidden;
 }
 
-
-.#{$wy}-panel {
+.wy-panel {
     position: absolute;
     top: 0;
     right: 0;
@@ -29,7 +25,7 @@ $wy: namespace.$prefix;
     display: flex;
     flex-direction: column;
 
-    .#{$wy}-controls {
+    .wy-controls {
         top: .5rem;
         left: .5rem;
         min-width: 2rem;
@@ -43,24 +39,24 @@ $wy: namespace.$prefix;
             display: none;
         }
 
-        .#{$wy}-icon {
+        .wy-icon {
             color: variables.$icon-color;
         }
 
         border-bottom: 1px solid variables.$border-color;
     }
 
-    .#{$wy}-panel-frame {
+    .wy-panel-frame {
         transition: opacity .1s .2s variables.$md-animation-curve-default;
         opacity: 1;
     }
 
-    &:not(.#{$wy}-loaded) .#{$wy}-panel-frame {
+    &:not(.wy-loaded) .wy-panel-frame {
         opacity: 0;
         transition: opacity .2s .1s step-start;
     }
 
-    &.#{$wy}-open {
+    &.wy-open {
         pointer-events: all;
         z-index: 5;
 
@@ -99,7 +95,7 @@ $wy: namespace.$prefix;
             transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default 0s;
         }
 
-        &.#{$wy}-loading {
+        &.wy-loading {
             &[data-title]::before {
                 transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default;
                 opacity: 1;
@@ -120,23 +116,23 @@ $wy: namespace.$prefix;
 }
 
 // Transitions
-.#{$wy}-panel {
+.wy-panel {
     opacity: 0;
     visibility: hidden;
     transition: opacity variables.$md-animation-duration-fast variables.$md-animation-curve-default .01s, transform variables.$md-animation-duration-fast variables.$md-animation-curve-default .01s, visibility .01s step-end variables.$md-animation-duration-fast;
 
-    &.#{$wy}-open {
+    &.wy-open {
         transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default, transform variables.$md-animation-duration variables.$md-animation-curve-default, visibility variables.$md-animation-duration step-start;
         visibility: visible;
 
-        &.#{$wy}-transition {
+        &.wy-transition {
             opacity: 1;
             transform: none;
         }
     }
 }
 
-.#{$wy}-panel-frame {
+.wy-panel-frame {
     flex: 1 1 100%;
     border: 0;
 }

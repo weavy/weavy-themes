@@ -1,12 +1,9 @@
 @use "sass:selector";
 @use "./variables";
-@use "./namespace";
-
-$wy: namespace.$prefix;
 
 // General style reboot selector for all classes starting with wy-
-[class^="#{$wy}-"],
-[class*=" #{$wy}-"] {
+[class^="wy-"],
+[class*=" wy-"] {
 
   // Cherry-picked and ported from bootstrap/scss/reboot
   &,

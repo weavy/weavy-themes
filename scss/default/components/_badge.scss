@@ -1,35 +1,32 @@
-@use "../namespace";
-@use "../variables";
-@use "../bootstrap/mixins" as bs;
+@use "../bootstrap" as bs;
+@use "../bootstrap/badge";
 @use "../colors";
+@use "../variables";
 
-@use "../bootstrap/ports/badge";
 
-$wy: namespace.$prefix;
-
-.#{$wy}-badge {
+.wy-badge {
   @extend %badge;
   border-radius: 50rem;
   background-color: variables.$primary;
 }
 
-.#{$wy}-badge-success {
+.wy-badge-success {
   background-color: variables.$success;
 }
 
-.#{$wy}-badge-warning {
+.wy-badge-warning {
   background-color: variables.$warning;
 }
 
-.#{$wy}-badge-danger {
+.wy-badge-danger {
   background-color: variables.$danger;
 }
 
-.#{$wy}-button {
+.wy-button {
   position: relative; // so that we can position .badge
 
   // badge, e.g. notification count
-  .#{$wy}-badge {
+  .wy-badge {
     font-size: variables.$font-size-xs;
     position: absolute;
     right: 0;

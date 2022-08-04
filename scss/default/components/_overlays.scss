@@ -1,12 +1,8 @@
-@use "../namespace";
-@use "../variables";
+@use "../bootstrap" as bs;
 @use "../colors";
-@use "../bootstrap/mixins" as bs;
+@use "../variables";
 
-$wy: namespace.$prefix;
-
-// Consolidate this with overlays/modals
-.#{$wy}-viewport {
+.wy-viewport {
     position: fixed;
     top: 0;
     right: 0;
@@ -18,7 +14,7 @@ $wy: namespace.$prefix;
 
 // Overlays
 
-.#{$wy}-overlays {
+.wy-overlays {
     pointer-events: none;
     width: auto;
     left: 0;
@@ -35,53 +31,53 @@ $wy: namespace.$prefix;
     perspective: 100rem;
     perspective-origin: center center;
 
-    .#{$wy}-panel {
+    .wy-panel {
         background-color: rgba(mix(colors.$white, #FFF), variables.$opacity-backdrop);
         //max-height: 100vh; // Causes height error in safari
 
-        &:not(.#{$wy}-transition) {
+        &:not(.wy-transition) {
             transform: translateZ(-4rem) !important;
         }
 
-        .#{$wy}-controls {
+        .wy-controls {
             position: absolute;
             border-bottom: none;
             flex-direction: row;
             transition: opacity .1s .2s step-end;
 
 
-            .#{$wy}-icon {
+            .wy-icon {
                 color: variables.$icon-color;
             }
         }
 
-        &.#{$wy}-loaded {
-            .#{$wy}-controls {
+        &.wy-loaded {
+            .wy-controls {
                 pointer-events: none;
                 opacity: 0;
             }
         }
 
-        .#{$wy}-panel-frame {
+        .wy-panel-frame {
             background-color: transparent;
         }
 
-        &.#{$wy}-controls-light {
-            .#{$wy}-icon {
+        &.wy-controls-light {
+            .wy-icon {
                 color: variables.$icon-color;
             }
         }
 
-        &.#{$wy}-light {
+        &.wy-light {
             background-color: rgba(mix(colors.$white, #FFF), variables.$opacity-backdrop);
 
-            .#{$wy}-icon {
+            .wy-icon {
                 color: variables.$icon-color;
             }
         }
 
-        &.#{$wy}-controls-dark {
-            .#{$wy}-icon {
+        &.wy-controls-dark {
+            .wy-icon {
                 color: variables.$navbar-dark-color;
 
                 &:hover, &:focus {
@@ -94,10 +90,10 @@ $wy: namespace.$prefix;
             }
         }
 
-        &.#{$wy}-dark {
+        &.wy-dark {
             background-color: rgba(mix(colors.$dark, #000), variables.$opacity-backdrop);
 
-            .#{$wy}-icon {
+            .wy-icon {
                 color: variables.$navbar-dark-color;
 
                 &:hover, &:focus {
@@ -109,14 +105,14 @@ $wy: namespace.$prefix;
                 }
             }
 
-            &.#{$wy}-open[data-title]::before {
+            &.wy-open[data-title]::before {
                 background: rgba(colors.$dark, variables.$opacity-backdrop);
                 color: variables.$navbar-dark-color;
                 border-bottom: variables.$border-width #000 solid;
             }
         }
 
-        &.#{$wy}-floating {
+        &.wy-floating {
             @include bs.media-breakpoint-up(md, variables.$grid-breakpoints) {
                 left: 1rem;
                 top: 1rem;
@@ -124,13 +120,13 @@ $wy: namespace.$prefix;
                 bottom: 1rem;
                 border-radius: .1875rem;
                 box-shadow: variables.$md-shadow-16dp;
-                &:not(.#{$wy}-scroll-y) {
+                &:not(.wy-scroll-y) {
                     overflow: hidden;
                 }
             }
         }
 
-        &.#{$wy}-modal {
+        &.wy-modal {
             background-color: rgba(mix(colors.$white, #FFF), variables.$opacity-backdrop);
 
             @include bs.media-breakpoint-up(md, variables.$grid-breakpoints) {
@@ -146,14 +142,14 @@ $wy: namespace.$prefix;
                 box-shadow: variables.$md-shadow-16dp;
                 width: 32rem;
                 max-height: 32rem;
-                &:not(.#{$wy}-scroll-y) {
+                &:not(.wy-scroll-y) {
                     overflow: hidden;
                 }
             }
         }
 
-        &.#{$wy}-loading {
-            .#{$wy}-controls {
+        &.wy-loading {
+            .wy-controls {
                 transition: opacity variables.$md-animation-duration variables.$md-animation-curve-default;
                 //transition: opacity .2s .2s variables.$md-animation-curve-default;
                 opacity: 1;

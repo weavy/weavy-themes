@@ -1,9 +1,9 @@
 // Port from bootstrap to only generate content on demand
-// - Update with content from bootstrap/scss/_tables.scss
+// - Copy content from /node_modules/bootstrap/scss/_tables.scss
 // - Replace .selector with %selector
 // - @extend %selector in your code
 
-@use "../../bootstrap" as *;
+@use "../bootstrap" as *;
 
 %table {
   --#{$variable-prefix}table-bg: #{$table-bg};
@@ -41,40 +41,11 @@
     vertical-align: bottom;
   }
 
-  // Highlight border color between thead, tbody and tfoot.
-  > :not(:first-child) {
-    border-top: (2 * $table-border-width) solid $table-group-separator-color;
-  }
 }
 
-
-// WEAVY CUSTOM (same as in ../_tables.scss)
-
-// table with avatar/icon in first and last column
-%table-icons {
-  table-layout: fixed;
-
-  th, td {
-    // cell with img or icon
-    &:first-child, &:last-child {
-      color: $icon-color;
-      vertical-align: middle;
-      text-align: center;
-      padding: $table-cell-padding-y-sm $table-cell-padding-x;
-      width: 2rem + $table-cell-padding-x;
-      // reset th styles (for dropdown menus in th)
-      font-size: $font-size-base;
-      font-weight: $font-weight-base;
-      text-transform: none;
-      letter-spacing: normal;
-    }
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
+%table-hover {
+  > tbody > tr:hover > * {
+    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-hover-bg);
+    color: var(--#{$variable-prefix}table-hover-color);
   }
 }

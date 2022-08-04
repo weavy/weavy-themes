@@ -1,20 +1,15 @@
-@use "../namespace";
 @use "../variables";
 
-$wy: namespace.$prefix;
+// user content. e.g. text in comments, messages etc.
 
-// user content
-.#{$wy}-content {
-
-  .#{$wy}-tag {
-    color: variables.$text-muted;
-  }
-
-  .#{$wy}-mention {
-    font-weight: 500;
-  }
-
-  p:last-child {
-      margin-bottom:0;
-  }
+// hashtags
+.wy-hashtag {
+  color: variables.$text-muted;
 }
+
+// mentions
+.wy-mention {
+  font-weight: 500;
+}
+
+
