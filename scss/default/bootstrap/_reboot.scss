@@ -1,5 +1,5 @@
 // bootstrap reboot (used by Weavy.Dropin)
 @import "../variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/root";
-@import "../../../node_modules/bootstrap/scss/reboot";
+@import "../../../lib/bootstrap/mixins";
+@import "../../../lib/bootstrap/root";
+@import "../../../lib/bootstrap/reboot";

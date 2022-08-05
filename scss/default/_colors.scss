@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "./utils/palette";
-@import "../../node_modules/bootstrap/scss/functions";
+@import "../../lib/bootstrap/functions";
 
 // primary color
 $primary: #156B93;

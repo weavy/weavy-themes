@@ -1,15 +1,20 @@
 Components ported from from bootstrap to only generate content on demand.
+The steps for creating a component that is based on an similar bootrap component is as follows:
 
-The steps for porting a component are as follows:
+1. Copy the original component from `/lib/bootstrap`.
+2. Replace `.selector` with `%selector`.
+3. Use `@extend %selector` when creating your component.
 
-1. Copy the original component from bootstrap, e.g. /node_modules/bootstrap/scss/_badge.scss
-2. Replace .selector with %selector
+For example to create a `.wy-badge` you can do this:
 
-When using the component you should @extend %selector in your scss code.
+1. Copy `/lib/bootstrap/_badge.scss` to `./_badge.scss`.
+2. Replace `.badge` with `%badge`.
+3. Create `../components/_badge.scss`. 
 
-```
-.wy-badge {
-  @extend %badge;
-  
-}
-```
+   ```
+   @use "../bootstrap/badge";
+   
+   .wy-badge {
+     @extend %badge;
+    }
+   ```

@@ -1,11 +1,4 @@
 # weavy-themes
 
-Theme library for Weavy.
+Theme library for Weavy. Contains `.scss` source files used by Weavy frontend libraries to provide consistent styling for Weavy UI components.
 
-## Init
-
-Run `npm install` to install dependencies.
-
-## Build
-
-Run `npm run build` to build css and place it in `/dist`.

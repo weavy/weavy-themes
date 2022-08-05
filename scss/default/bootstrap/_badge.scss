@@ -1,8 +1,3 @@
-// Port from bootstrap to only generate content on demand
-// - Copy content from /node_modules/bootstrap/scss/_badge.scss
-// - Replace .selector with %selector
-// - @extend %selector in your code
-
 @use "../bootstrap" as *;
 
 %badge {
